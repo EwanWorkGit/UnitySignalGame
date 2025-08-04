@@ -8,9 +8,8 @@ public class SignalDisplay : MonoBehaviour
 {
     public static SignalDisplay Instance;
 
-    public Image[] Logs;
-
-    List<SignalData> Signals = new List<SignalData>();
+    public SignalTransferLocation TransferLocation;
+    public SignalLog[] Logs;
 
     private void Awake()
     {
@@ -19,55 +18,26 @@ public class SignalDisplay : MonoBehaviour
 
     public void AddSignal(SignalData data)
     {
-        //appropriate UI alongside adding into signals list
-        Debug.Log("Display recieved a signal");
-        Signals.Add(data);
-    }
-
-    private void Update()
-    {
-        foreach(SignalData signal in Signals)
+        //assign data to the first log that does not contain data
+        foreach(SignalLog log in Logs)
         {
-            Debug.Log(signal.DecayRate);
-            signal.Stability -= signal.DecayRate * Time.deltaTime;
-            signal.Stability = Mathf.Clamp01(signal.Stability);
-        }
-
-
-        for(int index = 0; index < Logs.Length; index++)
-        {
-            if(index < Signals.Count)
+            if(log.AssignedData == null)
             {
-                GameObject currentLog = Logs[index].gameObject;
-
-                TMP_Text[] allTexts = currentLog.GetComponentsInChildren<TMP_Text>();
-                List<TMP_Text> valueTexts = new();
-
-                foreach(TMP_Text text in allTexts)
-                {
-                    if(text.transform.CompareTag("Value Text"))
-                    {
-                        valueTexts.Add(text);
-                    }
-                }
-
-                if (Signals[index].Stability <= 0)
-                {
-                    foreach(TMP_Text text in valueTexts)
-                    {
-                        text.text = "";
-                    }
-
-                    Signals.Remove(Signals[index]);
-                    break;
-                }
-                
-                valueTexts[0].text = Signals[index].Name + (index + 1).ToString();
-                valueTexts[1].text = (Signals[index].Stability * 100f).ToString("F0");
-                valueTexts[2].text = Signals[index].Size.ToString("F2");
-                
-
+                log.AssignedData = data;
+                log.MaxTransferTime = TransferLocation.TransferTime;
+                log.AssignedData.TimeUntilTransfer = TransferLocation.TransferTime;
+                break;
             }
         }
+    }
+
+    public void TransferSignal(SignalData data)
+    {
+        if (data != null)
+        {
+            TransferLocation.StoreSignal(data);
+        }
+        else
+            Debug.Log("Data is null");
     }
 }

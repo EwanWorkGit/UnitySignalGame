@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\UI\OverlayToggle.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\_Scripts\Signal\SignalTransferLocation.cs" />
     <Compile Include="Assets\_Scripts\ObjectAttributes\Targetable.cs" />
     <Compile Include="Assets\_Scripts\Signal\SignalDisplay.cs" />
     <Compile Include="Assets\_Scripts\Signal\ScreenToggle.cs" />
@@ -68,7 +69,7 @@
     <Compile Include="Assets\_Scripts\Signal\SignalTargeterMovement.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraClicking.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraManager.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalTransferLocation.cs" />
+    <Compile Include="Assets\_Scripts\Signal\SignalLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
