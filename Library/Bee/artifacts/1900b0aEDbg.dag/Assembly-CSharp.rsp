@@ -365,6 +365,7 @@
 "Assets/_Scripts/Signal/SignalLog.cs"
 "Assets/_Scripts/Signal/SignalTargeterMovement.cs"
 "Assets/_Scripts/Signal/SignalTransferLocation.cs"
+"Assets/_Scripts/Signal/Tools/SignalStabilizer.cs"
 "Assets/_Scripts/UI/OverlayToggle.cs"
 -langversion:9.0
 

@@ -10,10 +10,61 @@ public class SignalDisplay : MonoBehaviour
 
     public SignalTransferLocation TransferLocation;
     public SignalLog[] Logs;
+    public SignalLog CurrentLog = null;
+
+    public Material Default, Stabilizing;
+
+    public int Index = 0;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+
+        //increase index
+        if (scroll < -0.01f)
+        {
+            if (Index + 1 < Logs.Length)
+            {
+                Index++;
+            }
+            else
+            {
+                Index = 0;
+            }
+        }
+        //decrease index
+        if (scroll > 0.01f)
+        {
+            if (Index - 1 >= 0)
+            {
+                Index--;
+            }
+            else
+            {
+                Index = Logs.Length - 1;
+            }
+        }
+
+        //set current log
+        CurrentLog = Logs[Index];
+
+        //color current log
+        foreach(SignalLog log in Logs)
+        {
+            if(log == CurrentLog)
+            {
+                log.gameObject.GetComponent<Image>().material = Stabilizing;
+            }
+            else
+            {
+                log.gameObject.GetComponent<Image>().material = Default;
+            }
+        }
     }
 
     public void AddSignal(SignalData data)
@@ -24,8 +75,8 @@ public class SignalDisplay : MonoBehaviour
             if(log.AssignedData == null)
             {
                 log.AssignedData = data;
-                log.MaxTransferTime = TransferLocation.TransferTime;
-                log.AssignedData.TimeUntilTransfer = TransferLocation.TransferTime;
+                log.MaxTransferTime = TransferLocation.TransferTime * log.AssignedData.Size;
+                log.AssignedData.TimeUntilTransfer = log.MaxTransferTime;
                 break;
             }
         }

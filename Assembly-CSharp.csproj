@@ -70,6 +70,7 @@
     <Compile Include="Assets\_Scripts\Camera\CameraClicking.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraManager.cs" />
     <Compile Include="Assets\_Scripts\Signal\SignalLog.cs" />
+    <Compile Include="Assets\_Scripts\Signal\Tools\SignalStabilizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

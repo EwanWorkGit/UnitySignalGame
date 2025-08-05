@@ -36,7 +36,7 @@ public class SignalLog : MonoBehaviour
             }
 
             //if signal transfers
-            if(AssignedData.TimeUntilTransfer <= 0 && AssignedData != null)
+            if(AssignedData != null && AssignedData.TimeUntilTransfer <= 0)
             {
                 //ask signaldisplay to transfer the data
                 Debug.Log("Transfering data");
