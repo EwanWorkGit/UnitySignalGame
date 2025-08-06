@@ -8,6 +8,7 @@ public class SignalDisplay : MonoBehaviour
 {
     public static SignalDisplay Instance;
 
+    public SignalStabilizer Stabilizer;
     public SignalTransferLocation TransferLocation;
     public SignalLog[] Logs;
     public SignalLog CurrentLog = null;
@@ -25,28 +26,31 @@ public class SignalDisplay : MonoBehaviour
     {
         float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
 
-        //increase index
-        if (scroll < -0.01f)
+        if(!Stabilizer.IsStabilizing)
         {
-            if (Index + 1 < Logs.Length)
+            //increase index
+            if (scroll < -0.01f)
             {
-                Index++;
+                if (Index + 1 < Logs.Length)
+                {
+                    Index++;
+                }
+                else
+                {
+                    Index = 0;
+                }
             }
-            else
+            //decrease index
+            if (scroll > 0.01f)
             {
-                Index = 0;
-            }
-        }
-        //decrease index
-        if (scroll > 0.01f)
-        {
-            if (Index - 1 >= 0)
-            {
-                Index--;
-            }
-            else
-            {
-                Index = Logs.Length - 1;
+                if (Index - 1 >= 0)
+                {
+                    Index--;
+                }
+                else
+                {
+                    Index = Logs.Length - 1;
+                }
             }
         }
 

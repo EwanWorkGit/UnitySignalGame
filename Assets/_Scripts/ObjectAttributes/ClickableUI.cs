@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ClickableUI : MonoBehaviour
 { 
-    public void SendDataToSignalManager()
+    public void SendDataToSignalDisplay()
     {
         Debug.Log("You pressed a signal");
         SignalData data = new SignalData();

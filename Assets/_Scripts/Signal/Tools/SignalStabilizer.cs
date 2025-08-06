@@ -7,7 +7,9 @@ public class SignalStabilizer : MonoBehaviour
     public SignalDisplay Display;
     public SignalLog CurrentLog;
 
-    public float StabilizeDecayRate; //mode 1 will slow decay down --- Less power
+    public float StabilizeDecayRate = 0.04f; //mode 1, will slow decay down --- Less power
+    public float DrasticStabilizeRate = 0.4f; //mode 2, large burst of stability --- A lot of power 
+
     public bool IsStabilizing = false;
 
     private void Update()
@@ -32,13 +34,12 @@ public class SignalStabilizer : MonoBehaviour
             }
         }
 
-        
-        if(IsStabilizing)
+        //stabilizer, decreases decay.
+        if (IsStabilizing)
         {
             if(CurrentLog != null && CurrentLog.AssignedData != null)
             {
                 CurrentLog.AssignedData.DecayOffset = StabilizeDecayRate;
-                Debug.Log(CurrentLog.AssignedData.DecayRate);
             }
         }
         else
@@ -46,9 +47,16 @@ public class SignalStabilizer : MonoBehaviour
             if (CurrentLog != null && CurrentLog.AssignedData != null)
             {
                 CurrentLog.AssignedData.DecayOffset = 0;
-                Debug.Log(CurrentLog.AssignedData.DecayRate);
             }
         }
-        
+
+        //emergency stabilizer, increases stability drastically at the cost of power
+        if(CurrentLog != null && CurrentLog.AssignedData != null)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                CurrentLog.AssignedData.Stability += DrasticStabilizeRate;
+            }
+        }
     }
 }
