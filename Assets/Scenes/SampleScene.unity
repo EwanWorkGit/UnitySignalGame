@@ -665,7 +665,10 @@ MonoBehaviour:
   Display: {fileID: 37627123}
   CurrentLog: {fileID: 0}
   StabilizeDecayRate: 0.04
+  StabilizeUsageRate: 6
   DrasticStabilizeRate: 0.4
+  DrasticStabilizeUsageRate: 20
+  DrasticStabilizeUsageDuration: 1
   IsStabilizing: 0
 --- !u!1 &451950845
 GameObject:
@@ -738,7 +741,6 @@ GameObject:
   - component: {fileID: 483045271}
   - component: {fileID: 483045270}
   - component: {fileID: 483045269}
-  - component: {fileID: 483045272}
   m_Layer: 0
   m_Name: Battery Object
   m_TagString: Untagged
@@ -759,6 +761,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451950846}
+  - {fileID: 2123017075}
   m_Father: {fileID: 2000444097}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -825,18 +828,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483045267}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &483045272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483045267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2276c81bf619924299c0026df1ac0a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &540630906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,6 +3340,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   Controller: {fileID: 2050473036}
+--- !u!1 &2123017074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2123017075}
+  - component: {fileID: 2123017076}
+  m_Layer: 0
+  m_Name: Battery Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2123017075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123017074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 483045268}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2123017076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123017074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2276c81bf619924299c0026df1ac0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerText: {fileID: 706969977}
+  BasePowerUsage: -4
+  TotalPowerUsage: 0
+  PowerStored: 100
+  MaxPowerStorage: 100
+  RechargeTime: 2
+  OnRechargePeriod: 0
 --- !u!1001 &4766375461660425720
 PrefabInstance:
   m_ObjectHideFlags: 0

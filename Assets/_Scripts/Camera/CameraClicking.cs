@@ -37,7 +37,7 @@ public class CameraClicking : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             if(CurrentScreen != null)
             {
