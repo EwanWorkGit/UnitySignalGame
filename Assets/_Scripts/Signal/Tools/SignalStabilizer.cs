@@ -6,6 +6,8 @@ public class SignalStabilizer : MonoBehaviour
 {
     public SignalDisplay Display;
     public SignalLog CurrentLog;
+    public CameraClicking ClickHandler;
+    public ScreenToggle Screen;
 
     public PowerUsageData StableData, BurstData;
 
@@ -20,11 +22,15 @@ public class SignalStabilizer : MonoBehaviour
     {
         PowerManager = BatteryManager.Instance;
 
-        //null checks for managers
+        //null checks for managers / handlers
         if (PowerManager == null)
             Debug.Log("Power manager is null!");
         if (Display == null)
             Debug.Log("Display is not assigned!");
+        if (ClickHandler == null)
+            Debug.Log("ClickHandler is not assigned!");
+        if (Screen == null)
+            Debug.Log("ScreenToggle is not assigned!");
 
         //add powerusage for prolonged things: aka delay.
         StableData = new(StabilizeUsageRate);
@@ -35,25 +41,30 @@ public class SignalStabilizer : MonoBehaviour
     private void Update()
     {
         bool currentLogExistsAndHasData = CurrentLog != null && CurrentLog.AssignedData != null;
+        bool insideCurrentScreen = ClickHandler.InsideScreen && ClickHandler.CurrentScreen == Screen;
 
-        //shuts of stabilization and power usage, no more code runs after this
-        if (PowerManager.OnRechargePeriod)
-        {
-            RemovePowerUsage();
-            IsStabilizing = false;
-            return;
-        }
-
-        //getting current log
+        //getting current log, is above recharge because signal display needs the info to work
         if (Display != null && Display.enabled)
         {
             CurrentLog = Display.CurrentLog;
         }
 
-        //turn toggle stabilizing bool
+        //shuts of stabilization and power usage, no more code runs after this
+        if (PowerManager.OnRechargePeriod)
+        {
+            IsStabilizing = false;
+            RemovePowerUsage();
+            UnStablizeAllLogs();
+
+            return;
+        }
+
+        
+
+        //toggle stabilizing bool
         if (currentLogExistsAndHasData)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0) && insideCurrentScreen)
             {
                 IsStabilizing = !IsStabilizing;
             }
@@ -85,7 +96,7 @@ public class SignalStabilizer : MonoBehaviour
         //emergency stabilizer, increases stability drastically at the cost of power
         if (currentLogExistsAndHasData)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && insideCurrentScreen)
             {
                 CurrentLog.AssignedData.Stability += DrasticStabilizeRate;
 

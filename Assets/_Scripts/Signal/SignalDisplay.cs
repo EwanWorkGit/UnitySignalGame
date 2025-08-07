@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SignalDisplay : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class SignalDisplay : MonoBehaviour
     public SignalLog[] Logs;
     public SignalLog CurrentLog = null;
 
-    public Material Default, Stabilizing;
+    public Material Default, Selected, Stabilizing;
 
     public int Index = 0;
 
@@ -62,11 +61,19 @@ public class SignalDisplay : MonoBehaviour
         {
             if(log == CurrentLog)
             {
-                log.gameObject.GetComponent<Image>().material = Stabilizing;
+                if(Stabilizer.IsStabilizing)
+                {
+                    log.ImageSelf.material = Stabilizing;
+                    
+                }
+                else
+                {
+                    log.ImageSelf.material = Selected;
+                }
             }
             else
             {
-                log.gameObject.GetComponent<Image>().material = Default;
+                log.ImageSelf.material = Default;
             }
         }
     }

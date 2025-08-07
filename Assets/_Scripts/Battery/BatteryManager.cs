@@ -16,7 +16,7 @@ public class BatteryManager : MonoBehaviour
     public float PowerStored = 100f;
     public float MaxPowerStorage = 100f;
 
-    public float RechargeTime = 2f; //seconds
+    public float EnableThreshold = 50f;
 
     public bool OnRechargePeriod = false;
 
@@ -41,11 +41,16 @@ public class BatteryManager : MonoBehaviour
         //clamp power stored between 0 and max power
         PowerStored = Mathf.Clamp(PowerStored, 0, MaxPowerStorage);
 
+        //start recharge period
         if(PowerStored <= 0 && !OnRechargePeriod)
         {
-            //start rechargePeriod
             OnRechargePeriod = true;
-            StartCoroutine(RechargeDelay());
+        }
+
+        //end recharge period
+        if(PowerStored >= EnableThreshold && OnRechargePeriod)
+        {
+            OnRechargePeriod = false;
         }
 
         if(PowerText != null)
@@ -54,8 +59,6 @@ public class BatteryManager : MonoBehaviour
         {
             Debug.Log("Power Text Is Null!");
         }
-
-        Debug.Log("Users: " + PowerUsers.Count);
     }
 
     void CalculatePowerPerSecond()
@@ -97,11 +100,5 @@ public class BatteryManager : MonoBehaviour
     public void RemovePowerSource(PowerUsageData usageData)
     {
         PowerUsers.Remove(usageData);
-    }
-
-    IEnumerator RechargeDelay()
-    {
-        yield return new WaitForSeconds(RechargeTime);
-        OnRechargePeriod = false;
     }
 }

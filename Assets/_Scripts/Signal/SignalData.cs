@@ -9,5 +9,5 @@ public class SignalData
     public float Size = Random.Range(0.5f, 1f);
     public float TimeUntilTransfer;
     public float DecayOffset = 0;
-    public float DecayRate => Mathf.Lerp(0.01f, 0.05f, Size) - DecayOffset;
+    public float DecayRate => Mathf.Lerp(0.01f, 0.03f, Size) - DecayOffset;
 }

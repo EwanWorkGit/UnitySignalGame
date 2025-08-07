@@ -11,8 +11,17 @@ public class SignalLog : MonoBehaviour
     //assigned in editor
     public TMP_Text NameText, SizeText, StabilityText;
     public Image TransferFill;
+    public Image ImageSelf;
     //assigned by display
     public float MaxTransferTime;
+
+    private void Start()
+    {
+        ImageSelf = GetComponent<Image>();
+
+        if (ImageSelf == null)
+            Debug.Log("Log image is null!");
+    }
 
     private void Update()
     {

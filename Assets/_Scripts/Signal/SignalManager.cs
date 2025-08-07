@@ -14,9 +14,40 @@ public class SignalManager : MonoBehaviour
     public float BaseSpawnTime = 15f;
     public float TimeUntilSpawn;
     public float TimeIncreasePerSignal;
+    public float MaxTimerValue = 20f;
+    public float CurrentTimerValue = 20f;
+
+    public int SignalThreshold = 5;
+
+    private void Start()
+    {
+        CurrentTimerValue = MaxTimerValue;
+    }
 
     private void Update()
     {
+        int signalCount = Signals.Count;
+
+        //starts a timer if signals are more than the threshold
+        if(signalCount > SignalThreshold)
+        {
+            Debug.Log("Signals above threshold");
+            CurrentTimerValue -= Time.deltaTime;
+            CurrentTimerValue = Mathf.Clamp(CurrentTimerValue, 0, MaxTimerValue);
+
+            if(CurrentTimerValue <= 0)
+            {
+                //code or method / action for when you lose
+                //VFX
+                Debug.Log("You're Fired!");
+            }
+        }
+        else
+        {
+            if(CurrentTimerValue != MaxTimerValue)
+                CurrentTimerValue = MaxTimerValue;
+        }
+
         List<ClickableUI> signalsToRemove = new();
 
         foreach(ClickableUI signal in Signals)
