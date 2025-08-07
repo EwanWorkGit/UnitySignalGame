@@ -11,10 +11,15 @@ public class CameraClicking : MonoBehaviour
 
     void Update()
     {
-        if(CameraManager.Instance.MainCamera.enabled)
+        //make input need maincamera and exit not need it
+
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
+        Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo);
+
+        //we need the "player" camera to be enabled in order to press stuff
+        if (CameraManager.Instance.MainCamera.enabled)
         {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
-            Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo);
+            
             if (hitInfo.collider != null)
             {
                 if (Input.GetMouseButtonDown(0))

@@ -20,6 +20,12 @@ public class SignalStabilizer : MonoBehaviour
     {
         PowerManager = BatteryManager.Instance;
 
+        //null checks for managers
+        if (PowerManager == null)
+            Debug.Log("Power manager is null!");
+        if (Display == null)
+            Debug.Log("Display is not assigned!");
+
         //add powerusage for prolonged things: aka delay.
         StableData = new(StabilizeUsageRate);
         //add powerusage for bursts: aka drastic stabilize.
@@ -28,18 +34,27 @@ public class SignalStabilizer : MonoBehaviour
 
     private void Update()
     {
+        bool currentLogExistsAndHasData = CurrentLog != null && CurrentLog.AssignedData != null;
+
+        //shuts of stabilization and power usage, no more code runs after this
+        if (PowerManager.OnRechargePeriod)
+        {
+            RemovePowerUsage();
+            IsStabilizing = false;
+            return;
+        }
+
         //getting current log
         if (Display != null && Display.enabled)
         {
             CurrentLog = Display.CurrentLog;
         }
 
-        //turn on stabilizing bool
-        if (CurrentLog != null)
+        //turn toggle stabilizing bool
+        if (currentLogExistsAndHasData)
         {
             if (Input.GetMouseButtonDown(1))
             {
-                //if false then true
                 IsStabilizing = !IsStabilizing;
             }
         }
@@ -47,72 +62,53 @@ public class SignalStabilizer : MonoBehaviour
         //stabilizer, decreases decay.
         if (IsStabilizing)
         {
-            if (CurrentLog != null && CurrentLog.AssignedData != null)
+            if (currentLogExistsAndHasData)
             {
                 CurrentLog.AssignedData.DecayOffset = StabilizeDecayRate;
 
-                //adding powerusage
-                if (PowerManager != null)
-                {
-                    if (!PowerManager.PowerUsers.Contains(StableData))
+                if (!PowerManager.PowerUsers.Contains(StableData))
                         PowerManager.AddPowerSource(StableData);
-                    else
-                    {
-                        Debug.Log("StableData already contained inside PowerUsers");
-                    }
-                }
+            }
+            else
+            {
+                IsStabilizing = false;
+                RemovePowerUsage();
             }
         }
         else
         {
-            if (CurrentLog != null && CurrentLog.AssignedData != null)
-            {
-                CurrentLog.AssignedData.DecayOffset = 0;
-                RemovePowerUsage();
-            }
+            //if we're not stabilizing its safe to loop through all logs to make sure all of them are not stabilized
+            UnStablizeAllLogs();
+            RemovePowerUsage();
         }
 
         //emergency stabilizer, increases stability drastically at the cost of power
-        if (CurrentLog != null && CurrentLog.AssignedData != null)
+        if (currentLogExistsAndHasData)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CurrentLog.AssignedData.Stability += DrasticStabilizeRate;
 
-                //adding powerusage
-                if (PowerManager != null)
-                {
-                    //should not be removed in stablizer, this gets handled by the manager
-                    PowerManager.AddPowerSource(BurstData);
-                    BurstData.Duration = DrasticStabilizeUsageDuration;
-                }
+                //should not be removed in stablizer, this gets handled by the manager
+                PowerManager.AddPowerSource(BurstData);
+                BurstData.Duration = DrasticStabilizeUsageDuration;
             }
         }
-        
-        //turn of stabilization if current log is null
-        if(CurrentLog == null && IsStabilizing)
-        {
-            IsStabilizing = false;
-            RemovePowerUsage();
-        }
-
-        //if(batteryIsRecharging)
-
-        //call a method that shuts of stabilization and removes power usage until battery is back up and running
     }
 
     void RemovePowerUsage()
     {
-        //removing power usage
-        if (PowerManager != null)
-        {
-            if (PowerManager.PowerUsers.Contains(StableData))
-                PowerManager.RemovePowerSource(StableData);
-        }
+        if (PowerManager.PowerUsers.Contains(StableData))
+            PowerManager.RemovePowerSource(StableData);
     }
-    
-    void AddPowerUsage()
+    void UnStablizeAllLogs()
     {
-
+        foreach (SignalLog log in Display.Logs)
+        {
+            if (log != null && log.AssignedData != null)
+            {
+                log.AssignedData.DecayOffset = 0;
+            }
+        }
     }
 }

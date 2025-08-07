@@ -3389,7 +3389,7 @@ MonoBehaviour:
   TotalPowerUsage: 0
   PowerStored: 100
   MaxPowerStorage: 100
-  RechargeTime: 2
+  RechargeTime: 5
   OnRechargePeriod: 0
 --- !u!1001 &4766375461660425720
 PrefabInstance:
