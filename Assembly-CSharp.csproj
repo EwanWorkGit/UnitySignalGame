@@ -56,24 +56,28 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\Battery\BatteryManager.cs" />
-    <Compile Include="Assets\_Scripts\UI\OverlayToggle.cs" />
-    <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalTransferLocation.cs" />
-    <Compile Include="Assets\_Scripts\ObjectAttributes\Targetable.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalDisplay.cs" />
-    <Compile Include="Assets\_Scripts\Signal\ScreenToggle.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalManager.cs" />
-    <Compile Include="Assets\_Scripts\Camera\CameraMovement.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalData.cs" />
-    <Compile Include="Assets\_Scripts\Signal\Tools\SignalStabilizer.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalClicking.cs" />
-    <Compile Include="Assets\_Scripts\ObjectAttributes\ClickableUI.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalTargeterMovement.cs" />
-    <Compile Include="Assets\_Scripts\Camera\CameraClicking.cs" />
-    <Compile Include="Assets\_Scripts\Camera\CameraManager.cs" />
-    <Compile Include="Assets\_Scripts\Signal\SignalLog.cs" />
-    <Compile Include="Assets\_Scripts\Battery\PowerUsageData.cs" />
+    <Compile Include="Assets\_GameplayScripts\Battery\BatteryManager.cs" />
+    <Compile Include="Assets\_GameplayScripts\UI\OverlayToggle.cs" />
+    <Compile Include="Assets\_GameplayScripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\_GameplayScripts\StartUp\StartUpManager.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalTransferLocation.cs" />
+    <Compile Include="Assets\_GameplayScripts\ObjectAttributes\Targetable.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalDisplay.cs" />
+    <Compile Include="Assets\_CrossSceneScripts\SceneHandler.cs" />
+    <Compile Include="Assets\_GameplayScripts\ObjectAttributes\ScreenToggle.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalManager.cs" />
+    <Compile Include="Assets\_GameplayScripts\Camera\CameraMovement.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalData.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\Tools\SignalStabilizer.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalClicking.cs" />
+    <Compile Include="Assets\_GameplayScripts\ObjectAttributes\ClickableUI.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalTargeterMovement.cs" />
+    <Compile Include="Assets\_PreGameplayScripts\DayManager.cs" />
+    <Compile Include="Assets\_GameplayScripts\Camera\CameraClicking.cs" />
+    <Compile Include="Assets\_GameplayScripts\Camera\CameraManager.cs" />
+    <Compile Include="Assets\_GameplayScripts\Signal\SignalLog.cs" />
+    <Compile Include="Assets\_GameplayScripts\ObjectAttributes\StartUpObject.cs" />
+    <Compile Include="Assets\_GameplayScripts\Battery\PowerUsageData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
