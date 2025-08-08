@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum Phase { Startup, Gameplay, Shutdown }
 
-public class StartUpManager : MonoBehaviour
+public class PhaseManager : MonoBehaviour
 {
-    public static StartUpManager Instance;
+    public static PhaseManager Instance;
 
     public StartUpObject[] StartUpObjects;
     public SignalTransferLocation Storage;

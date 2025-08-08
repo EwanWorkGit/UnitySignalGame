@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class ScreenClicking : MonoBehaviour
 {
+    public static ScreenClicking Instance;
+
     public ScreenToggle CurrentScreen = null;
-    public StartUpManager StartManager;
+    public PhaseManager PhaseManager;
 
     public bool InsideScreen = false;
 
     int MouseButtonIndex = 1;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        StartManager = StartUpManager.Instance;
+        PhaseManager = PhaseManager.Instance;
 
-        if (StartManager == null)
-            Debug.Log("StartUpManager is null");
+        if (PhaseManager == null)
+            Debug.Log("PhaseManager is null");
     }
 
     void Update()
     {
-        if(StartManager.CurrentPhase == Phase.Gameplay)
+        if(PhaseManager.CurrentPhase == Phase.Gameplay || PhaseManager.CurrentPhase == Phase.Shutdown && CurrentScreen.GetComponent<StartUpObject>().TurnedOn)
         {
             Ray ray = CameraManager.Instance.MainCamera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
             Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo);

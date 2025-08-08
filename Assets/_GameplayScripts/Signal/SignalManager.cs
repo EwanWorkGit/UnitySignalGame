@@ -22,6 +22,8 @@ public class SignalManager : MonoBehaviour
     public int SignalThreshold = 5;
     public int SignalQuota = 3;
 
+    public bool IsActive = false; //for the first ever interaction, triggered by screen toggle
+
     private void Awake()
     {
         Instance = this;
@@ -34,49 +36,52 @@ public class SignalManager : MonoBehaviour
 
     private void Update()
     {
-        int signalCount = Signals.Count;
-
-        //starts a timer if signals are more than the threshold
-        if(signalCount > SignalThreshold)
+        if(IsActive)
         {
-            Debug.Log("Signals above threshold");
-            CurrentTimerValue -= Time.deltaTime;
-            CurrentTimerValue = Mathf.Clamp(CurrentTimerValue, 0, MaxTimerValue);
+            int signalCount = Signals.Count;
 
-            if(CurrentTimerValue <= 0)
+            //starts a timer if signals are more than the threshold
+            if (signalCount > SignalThreshold)
             {
-                //code or method / action for when you lose
-                //VFX
-                Debug.Log("You're Fired!");
+                Debug.Log("Signals above threshold");
+                CurrentTimerValue -= Time.deltaTime;
+                CurrentTimerValue = Mathf.Clamp(CurrentTimerValue, 0, MaxTimerValue);
+
+                if (CurrentTimerValue <= 0)
+                {
+                    //code or method / action for when you lose
+                    //VFX
+                    Debug.Log("You're Fired!");
+                }
             }
-        }
-        else
-        {
-            if(CurrentTimerValue != MaxTimerValue)
-                CurrentTimerValue = MaxTimerValue;
-        }
-
-        List<ClickableUI> signalsToRemove = new();
-
-        foreach(ClickableUI signal in Signals)
-        {
-            if(signal == null)
+            else
             {
-                signalsToRemove.Add(signal);
+                if (CurrentTimerValue != MaxTimerValue)
+                    CurrentTimerValue = MaxTimerValue;
             }
-        }
 
-        foreach(ClickableUI signal in signalsToRemove)
-        {
-            Signals.Remove(signal);
-        }
+            List<ClickableUI> signalsToRemove = new();
 
-        TimeUntilSpawn -= Time.deltaTime;
+            foreach (ClickableUI signal in Signals)
+            {
+                if (signal == null)
+                {
+                    signalsToRemove.Add(signal);
+                }
+            }
 
-        if(TimeUntilSpawn <= 0)
-        {
-            TimeUntilSpawn = RecountSpawnTime();
-            SpawnSignal();
+            foreach (ClickableUI signal in signalsToRemove)
+            {
+                Signals.Remove(signal);
+            }
+
+            TimeUntilSpawn -= Time.deltaTime;
+
+            if (TimeUntilSpawn <= 0)
+            {
+                TimeUntilSpawn = RecountSpawnTime();
+                SpawnSignal();
+            }
         }
     }
 

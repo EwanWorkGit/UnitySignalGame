@@ -361,6 +361,8 @@
 "Assets/_GameplayScripts/ObjectAttributes/ScreenToggle.cs"
 "Assets/_GameplayScripts/ObjectAttributes/StartUpObject.cs"
 "Assets/_GameplayScripts/ObjectAttributes/Targetable.cs"
+"Assets/_GameplayScripts/Phases/PhaseManager.cs"
+"Assets/_GameplayScripts/Phases/StartUpInput.cs"
 "Assets/_GameplayScripts/Player/PlayerMovement.cs"
 "Assets/_GameplayScripts/ScreenClicking.cs"
 "Assets/_GameplayScripts/Signal/SignalClicking.cs"
@@ -371,9 +373,8 @@
 "Assets/_GameplayScripts/Signal/SignalTargeterMovement.cs"
 "Assets/_GameplayScripts/Signal/SignalTransferLocation.cs"
 "Assets/_GameplayScripts/Signal/Tools/SignalStabilizer.cs"
-"Assets/_GameplayScripts/StartUp/StartUpInput.cs"
-"Assets/_GameplayScripts/StartUp/StartUpManager.cs"
 "Assets/_GameplayScripts/UI/OverlayToggle.cs"
+"Assets/_GameplayScripts/UI/QuotaDisplay.cs"
 "Assets/_PreGameplayScripts/DayManager.cs"
 -langversion:9.0
 
