@@ -6,7 +6,7 @@ public class SignalStabilizer : MonoBehaviour
 {
     public SignalDisplay Display;
     public SignalLog CurrentLog;
-    public CameraClicking ClickHandler;
+    public ScreenClicking ClickHandler;
     public ScreenToggle Screen;
 
     public PowerUsageData StableData, BurstData;

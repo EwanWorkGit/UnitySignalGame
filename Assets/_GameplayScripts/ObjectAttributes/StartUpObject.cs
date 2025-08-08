@@ -9,21 +9,27 @@ public class StartUpObject : MonoBehaviour
 
     public bool TurnedOn = false;
 
+    private void Start()
+    {
+        TurnOff();
+    }
+
     public void TurnOn()
     {
         TurnedOn = true;
         if(ScreenImage != null)
         {
-            ScreenImage.enabled = true;
+            ScreenImage.gameObject.SetActive(true);
         }
     }
 
+    //only happens at start, not by player
     public void TurnOff()
     {
         TurnedOn = false;
         if(ScreenImage != null)
         {
-            ScreenImage.enabled = false;
+            ScreenImage.gameObject.SetActive(false);
         }
     }
 }

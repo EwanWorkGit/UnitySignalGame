@@ -355,7 +355,6 @@
 "Assets/_CrossSceneScripts/SceneHandler.cs"
 "Assets/_GameplayScripts/Battery/BatteryManager.cs"
 "Assets/_GameplayScripts/Battery/PowerUsageData.cs"
-"Assets/_GameplayScripts/Camera/CameraClicking.cs"
 "Assets/_GameplayScripts/Camera/CameraManager.cs"
 "Assets/_GameplayScripts/Camera/CameraMovement.cs"
 "Assets/_GameplayScripts/ObjectAttributes/ClickableUI.cs"
@@ -363,6 +362,7 @@
 "Assets/_GameplayScripts/ObjectAttributes/StartUpObject.cs"
 "Assets/_GameplayScripts/ObjectAttributes/Targetable.cs"
 "Assets/_GameplayScripts/Player/PlayerMovement.cs"
+"Assets/_GameplayScripts/ScreenClicking.cs"
 "Assets/_GameplayScripts/Signal/SignalClicking.cs"
 "Assets/_GameplayScripts/Signal/SignalData.cs"
 "Assets/_GameplayScripts/Signal/SignalDisplay.cs"
@@ -372,6 +372,7 @@
 "Assets/_GameplayScripts/Signal/SignalTransferLocation.cs"
 "Assets/_GameplayScripts/Signal/Tools/SignalStabilizer.cs"
 "Assets/_GameplayScripts/StartUp/StartUpManager.cs"
+"Assets/_GameplayScripts/StartUpInput.cs"
 "Assets/_GameplayScripts/UI/OverlayToggle.cs"
 "Assets/_PreGameplayScripts/DayManager.cs"
 -langversion:9.0

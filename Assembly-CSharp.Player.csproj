@@ -73,11 +73,12 @@
     <Compile Include="Assets\_GameplayScripts\ObjectAttributes\ClickableUI.cs" />
     <Compile Include="Assets\_GameplayScripts\Signal\SignalTargeterMovement.cs" />
     <Compile Include="Assets\_PreGameplayScripts\DayManager.cs" />
-    <Compile Include="Assets\_GameplayScripts\Camera\CameraClicking.cs" />
     <Compile Include="Assets\_GameplayScripts\Camera\CameraManager.cs" />
     <Compile Include="Assets\_GameplayScripts\Signal\SignalLog.cs" />
     <Compile Include="Assets\_GameplayScripts\ObjectAttributes\StartUpObject.cs" />
     <Compile Include="Assets\_GameplayScripts\Battery\PowerUsageData.cs" />
+    <Compile Include="Assets\_GameplayScripts\ScreenClicking.cs" />
+    <Compile Include="Assets\_GameplayScripts\StartUpInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
