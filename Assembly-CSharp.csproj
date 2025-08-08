@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_GameplayScripts\StartUp\StartUpInput.cs" />
     <Compile Include="Assets\_GameplayScripts\Battery\BatteryManager.cs" />
     <Compile Include="Assets\_GameplayScripts\UI\OverlayToggle.cs" />
     <Compile Include="Assets\_GameplayScripts\Player\PlayerMovement.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\_GameplayScripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\_GameplayScripts\Signal\SignalData.cs" />
     <Compile Include="Assets\_GameplayScripts\Signal\Tools\SignalStabilizer.cs" />
+    <Compile Include="Assets\_GameplayScripts\ScreenClicking.cs" />
     <Compile Include="Assets\_GameplayScripts\Signal\SignalClicking.cs" />
     <Compile Include="Assets\_GameplayScripts\ObjectAttributes\ClickableUI.cs" />
     <Compile Include="Assets\_GameplayScripts\Signal\SignalTargeterMovement.cs" />
@@ -77,8 +79,6 @@
     <Compile Include="Assets\_GameplayScripts\Signal\SignalLog.cs" />
     <Compile Include="Assets\_GameplayScripts\ObjectAttributes\StartUpObject.cs" />
     <Compile Include="Assets\_GameplayScripts\Battery\PowerUsageData.cs" />
-    <Compile Include="Assets\_GameplayScripts\ScreenClicking.cs" />
-    <Compile Include="Assets\_GameplayScripts\StartUpInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

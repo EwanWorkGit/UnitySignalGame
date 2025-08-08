@@ -371,8 +371,8 @@
 "Assets/_GameplayScripts/Signal/SignalTargeterMovement.cs"
 "Assets/_GameplayScripts/Signal/SignalTransferLocation.cs"
 "Assets/_GameplayScripts/Signal/Tools/SignalStabilizer.cs"
+"Assets/_GameplayScripts/StartUp/StartUpInput.cs"
 "Assets/_GameplayScripts/StartUp/StartUpManager.cs"
-"Assets/_GameplayScripts/StartUpInput.cs"
 "Assets/_GameplayScripts/UI/OverlayToggle.cs"
 "Assets/_PreGameplayScripts/DayManager.cs"
 -langversion:9.0

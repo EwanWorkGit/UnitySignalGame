@@ -2,15 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Phase { Startup, Gameplay, Shutdown }
+
 public class StartUpManager : MonoBehaviour
 {
-    public StartUpObject[] StartUpObjects;
+    public static StartUpManager Instance;
 
-    public bool StartUpComplete = false;
+    public StartUpObject[] StartUpObjects;
+    public SignalTransferLocation Storage;
+
+    public Phase CurrentPhase = Phase.Startup;
+
+    public void Awake()
+    {
+        Instance = this;
+
+        if (Storage == null)
+            Debug.Log("Storage is not assigned!");
+    }
 
     private void Update()
     {
-        if(!StartUpComplete)
+        if(CurrentPhase == Phase.Startup)
         {
             foreach (StartUpObject startUp in StartUpObjects)
             {
@@ -18,7 +31,15 @@ public class StartUpManager : MonoBehaviour
                     return;
             }
 
-            StartUpComplete = true;
+                CurrentPhase = Phase.Gameplay;
+        }
+
+        if(CurrentPhase == Phase.Gameplay)
+        {
+            if(Storage.StoredSignalsCount >= SignalManager.Instance.SignalQuota)
+            {
+                CurrentPhase = Phase.Shutdown;
+            }
         }
     }
 }

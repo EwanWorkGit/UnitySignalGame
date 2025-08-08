@@ -975,7 +975,7 @@ GameObject:
   - component: {fileID: 540630912}
   - component: {fileID: 540630913}
   m_Layer: 0
-  m_Name: Signal Manager Object
+  m_Name: Signal Display Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1152,8 @@ MonoBehaviour:
   - {fileID: 653976655}
   - {fileID: 540630913}
   - {fileID: 1383045882}
-  StartUpComplete: 0
+  Storage: {fileID: 1089452633}
+  CurrentPhase: 0
 --- !u!114 &554425924 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 885738906413856868, guid: 050272f49c1de2a48a9744113f2b18ed, type: 3}
@@ -1769,6 +1770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentScreen: {fileID: 0}
+  StartManager: {fileID: 0}
   InsideScreen: 0
 --- !u!1 &1021228282
 GameObject:
@@ -1902,6 +1904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TransferTime: 60
+  StoredSignalsCount: 0
 --- !u!1 &1113921875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,6 +2833,7 @@ MonoBehaviour:
   MaxTimerValue: 20
   CurrentTimerValue: 20
   SignalThreshold: 3
+  SignalQuota: 3
 --- !u!1 &1655233756
 GameObject:
   m_ObjectHideFlags: 0

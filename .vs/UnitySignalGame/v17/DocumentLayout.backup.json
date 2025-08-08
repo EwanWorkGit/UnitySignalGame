@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|c:\\users\\08122\\onedrive\\dokument\\unity games\\unitysignalgame\\assets\\_gameplayscripts\\startupinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|solutionrelative:assets\\_gameplayscripts\\startupinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\Camera\\ScreenClicking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_GameplayScripts\\Camera\\ScreenClicking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\assets\\_gameplayscripts\\objectattributes\\startupobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|solutionrelative:assets\\_gameplayscripts\\objectattributes\\startupobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\assets\\_gameplayscripts\\startup\\startupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|solutionrelative:assets\\_gameplayscripts\\startup\\startupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\assets\\_gameplayscripts\\objectattributes\\startupobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|solutionrelative:assets\\_gameplayscripts\\objectattributes\\startupobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|c:\\users\\08122\\onedrive\\dokument\\unity games\\unitysignalgame\\assets\\_gameplayscripts\\screenclicking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|solutionrelative:assets\\_gameplayscripts\\screenclicking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|c:\\users\\08122\\onedrive\\dokument\\unity games\\unitysignalgame\\assets\\_gameplayscripts\\startupinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D9DAEC7-B12C-B95D-2899-433C035BB07E}|Assembly-CSharp.csproj|solutionrelative:assets\\_gameplayscripts\\startupinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +26,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ScreenClicking.cs",
+              "DocumentMoniker": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\ScreenClicking.cs",
+              "RelativeDocumentMoniker": "Assets\\_GameplayScripts\\ScreenClicking.cs",
+              "ToolTip": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\ScreenClicking.cs",
+              "RelativeToolTip": "Assets\\_GameplayScripts\\ScreenClicking.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T02:57:46.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "StartUpInput.cs",
               "DocumentMoniker": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\StartUpInput.cs",
               "RelativeDocumentMoniker": "Assets\\_GameplayScripts\\StartUpInput.cs",
               "ToolTip": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\StartUpInput.cs",
               "RelativeToolTip": "Assets\\_GameplayScripts\\StartUpInput.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T02:53:42.126Z",
               "EditorCaption": ""
@@ -44,17 +57,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ScreenClicking.cs",
-              "DocumentMoniker": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\Camera\\ScreenClicking.cs",
-              "RelativeDocumentMoniker": "Assets\\_GameplayScripts\\Camera\\ScreenClicking.cs",
-              "ToolTip": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\Camera\\ScreenClicking.cs",
-              "RelativeToolTip": "Assets\\_GameplayScripts\\Camera\\ScreenClicking.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T02:47:31.492Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "StartUpManager.cs",
               "DocumentMoniker": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\StartUp\\StartUpManager.cs",
               "RelativeDocumentMoniker": "Assets\\_GameplayScripts\\StartUp\\StartUpManager.cs",
@@ -62,19 +64,21 @@
               "RelativeToolTip": "Assets\\_GameplayScripts\\StartUp\\StartUpManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T02:16:05.287Z"
+              "WhenOpened": "2025-08-08T02:16:05.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "StartUpObject.cs",
               "DocumentMoniker": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\ObjectAttributes\\StartUpObject.cs",
               "RelativeDocumentMoniker": "Assets\\_GameplayScripts\\ObjectAttributes\\StartUpObject.cs",
               "ToolTip": "C:\\Users\\08122\\OneDrive\\Dokument\\Unity Games\\UnitySignalGame\\Assets\\_GameplayScripts\\ObjectAttributes\\StartUpObject.cs",
               "RelativeToolTip": "Assets\\_GameplayScripts\\ObjectAttributes\\StartUpObject.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwB8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T02:04:38.962Z"
+              "WhenOpened": "2025-08-08T02:04:38.962Z",
+              "EditorCaption": ""
             }
           ]
         }

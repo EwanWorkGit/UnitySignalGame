@@ -5,35 +5,46 @@ using UnityEngine;
 public class ScreenClicking : MonoBehaviour
 {
     public ScreenToggle CurrentScreen = null;
+    public StartUpManager StartManager;
 
     public bool InsideScreen = false;
 
     int MouseButtonIndex = 1;
 
+    private void Start()
+    {
+        StartManager = StartUpManager.Instance;
+
+        if (StartManager == null)
+            Debug.Log("StartUpManager is null");
+    }
+
     void Update()
     {
-        //make input need maincamera and exit not need it
-
-        Ray ray = CameraManager.Instance.MainCamera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
-        Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo);
-            
-        if (hitInfo.collider != null)
+        if(StartManager.CurrentPhase == Phase.Gameplay)
         {
-            //entering a screen
-            if (Input.GetMouseButtonDown(MouseButtonIndex) && !InsideScreen)
+            Ray ray = CameraManager.Instance.MainCamera.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f));
+            Physics.Raycast(ray.origin, ray.direction, out RaycastHit hitInfo);
+
+            if (hitInfo.collider != null)
             {
-                TargetScreen(hitInfo);
-                ActivateScreenComponents(hitInfo);
-                InsideScreen = true;
+                //entering a screen
+                if (Input.GetMouseButtonDown(MouseButtonIndex) && !InsideScreen)
+                {
+                    TargetScreen(hitInfo);
+                    ActivateScreenComponents(hitInfo);
+                    InsideScreen = true;
 
-                return;
+                    //return incase you enter as to not also trigger an exit at the same time
+                    return;
+                }
             }
-        }
 
-        if (Input.GetMouseButtonDown(MouseButtonIndex) && InsideScreen)
-        {
-            DefaultScreen();
-            InsideScreen = false;
+            if (Input.GetMouseButtonDown(MouseButtonIndex) && InsideScreen)
+            {
+                DefaultScreen();
+                InsideScreen = false;
+            }
         }
     }
 

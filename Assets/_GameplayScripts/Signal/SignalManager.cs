@@ -6,6 +6,8 @@ public class SignalManager : MonoBehaviour
 {
     //for spawning signals
 
+    public static SignalManager Instance;
+
     public Canvas Canvas; //needs to be parented
     public RectTransform ImageRect;
     public GameObject SignalObjectPrefab;
@@ -18,6 +20,12 @@ public class SignalManager : MonoBehaviour
     public float CurrentTimerValue = 20f;
 
     public int SignalThreshold = 5;
+    public int SignalQuota = 3;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

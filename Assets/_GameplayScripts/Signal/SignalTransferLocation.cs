@@ -5,15 +5,17 @@ using UnityEngine;
 public class SignalTransferLocation : MonoBehaviour
 {
     public float TransferTime = 20f;
-    
+    public int StoredSignalsCount; //for phase manager
+
     List<SignalData> StoredSignals = new();
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        StoredSignalsCount = StoredSignals.Count;
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            int count = StoredSignals.Count;
-            Debug.Log("Items in storage: " + count);
+            Debug.Log("Items in storage: " + StoredSignalsCount);
         }
     }
 
@@ -24,8 +26,7 @@ public class SignalTransferLocation : MonoBehaviour
             StoredSignals.Add(data);
         }
         else
-            Debug.Log("Data is null");
-        //action needed here to call for removal of data    
+            Debug.Log("Data is null");   
     }
 
     public void SellSignals()
